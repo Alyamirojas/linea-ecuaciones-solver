@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solucionador de Sistemas de Ecuaciones Lineales</title>
+    <meta name="description" content="Resuelve sistemas de ecuaciones lineales usando métodos de Matriz Inversa, Cramer y Gauss-Jordan">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Solucionador de Sistemas de Ecuaciones Lineales</h1>
+            <p class="subtitle">Resuelve sistemas usando Matriz Inversa, Cramer y Gauss-Jordan</p>
+        </div>
+
+        <div class="main-grid">
+            <!-- Input Section -->
+            <div class="input-section">
+                <!-- Matrix Input Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Sistema de Ecuaciones Lineales</h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="size-selector">
+                            <label for="size">Tamaño del sistema:</label>
+                            <select id="size" class="select-input">
+                                <option value="2">2x2</option>
+                                <option value="3" selected>3x3</option>
+                                <option value="4">4x4</option>
+                            </select>
+                            <button id="load-example" class="btn btn-outline">Cargar Ejemplo</button>
+                        </div>
+
+                        <div class="matrix-section">
+                            <label class="matrix-label">Matriz de coeficientes y constantes:</label>
+                            <div id="matrix-inputs"></div>
+                        </div>
+
+                        <div class="equation-display">
+                            <p><strong>Sistema de ecuaciones:</strong></p>
+                            <div id="equation-preview"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Method Selector Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Selecciona el Método de Resolución</h2>
+                    </div>
+                    <div class="card-content">
+                        <div class="method-buttons">
+                            <button class="method-btn" data-method="inverse">
+                                <div class="method-content">
+                                    <span class="method-icon">🔢</span>
+                                    <div>
+                                        <div class="method-title">Método de la Matriz Inversa</div>
+                                        <div class="method-description">Utiliza A⁻¹ para resolver x = A⁻¹b</div>
+                                    </div>
+                                </div>
+                            </button>
+                            <button class="method-btn" data-method="cramer">
+                                <div class="method-content">
+                                    <span class="method-icon">📐</span>
+                                    <div>
+                                        <div class="method-title">Regla de Cramer</div>
+                                        <div class="method-description">Utiliza determinantes para encontrar cada variable</div>
+                                    </div>
+                                </div>
+                            </button>
+                            <button class="method-btn" data-method="gauss-jordan">
+                                <div class="method-content">
+                                    <span class="method-icon">🔄</span>
+                                    <div>
+                                        <div class="method-title">Método de Gauss-Jordan</div>
+                                        <div class="method-description">Eliminación gaussiana con matriz aumentada</div>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section">
+                <div id="result-display" class="card border-dashed">
+                    <div class="card-content">
+                        <p class="placeholder-text">Selecciona un método para resolver el sistema de ecuaciones</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">
+        <div class="toast-content">
+            <div id="toast-title"></div>
+            <div id="toast-description"></div>
+        </div>
+        <button id="toast-close" class="toast-close">×</button>
+    </div>
+
+    <script src="matrix-solver.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
